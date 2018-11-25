@@ -20,7 +20,10 @@
 
 import Vue from 'vue';
 import Vuex from 'vuex';
-import counter from './modules/counter'
+import counter from './modules/counter';
+import * as actions from './actions';
+import * as getters from './getters';
+import * as mutations from './mutations';
 
 Vue.use(Vuex);
 
@@ -50,29 +53,32 @@ export const store = new Vuex.Store({
         /* counter: 0, */
         value: 0
     },
-    getters: {
+    getters,
+    /* getters: { */
         /* doubleCounter: state => {
             return state.counter * 2;
         },
         stringCounter: state => {
             return state.counter + ' clicks';
         }, */
-        value: state => {
+        /* value: state => {
             return state.value;
-        }
-    },
-    mutations: {
+        } */
+    /* }, */
+    mutations,
+    /* mutations: { */
         /* increment: (state, payload) => {
             state.counter += payload;
         },
         decrement: (state, payload) => {
             state.counter -= payload;
         }, */
-        updateValue: (state, payload) => {
+        /* updateValue: (state, payload) => {
             state.value = payload;
-        }
-    },
-    actions: {
+        } */
+    /* }, */
+    actions,
+    /* actions: { */
         /* increment: ({ commit }, payload) => {
             commit('increment', payload);
         },
@@ -89,10 +95,10 @@ export const store = new Vuex.Store({
                 commit('decrement', payload.by);
             }, payload.duration);
         }, */
-        updateValue: ({commit}, payload) => {
+        /* updateValue: ({commit}, payload) => {
             commit('updateValue', payload);
-        }
-    },
+        } */
+    /* }, */
     /* 
         creating modules
         help to run faster

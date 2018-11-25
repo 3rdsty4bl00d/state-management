@@ -26,6 +26,9 @@
 
 
 import { mapGetters } from 'vuex';
+
+import * as types from '../store/types';
+
     export default {
         computed: {
 
@@ -43,10 +46,13 @@ import { mapGetters } from 'vuex';
                 npm install --save-dev babel-preset-stage-3
              */
 
-            ...mapGetters([
+            ...mapGetters(/* [
             'doubleCounter',
             'stringCounter'
-        ])
+        ] */{
+            doubleCounter: types.DOUBLE_COUNTER,
+            stringCounter: types.CLICK_COUNTER
+        })
         }
         
     }
