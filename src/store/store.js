@@ -31,6 +31,7 @@ Vue.use(Vuex);
 
 /* 
     here, state and getters are fixed, 
+    they are reserved property name
     there is no other words for them
     doubleCounter and stringCounter 
     are the names of the getters
@@ -53,6 +54,32 @@ export const store = new Vuex.Store({
         },
         stringCounter: state => {
             return state.counter + ' clicks';
+        }
+    },
+    mutations: {
+        increment: (state, payload) => {
+            state.counter += payload;
+        },
+        decrement: (state, payload) => {
+            state.counter -= payload;
+        }
+    },
+    actions: {
+        increment: ({ commit }, payload) => {
+            commit('increment', payload);
+        },
+        decrement: ({ commit }, payload) => {
+            commit('decrement', payload);
+        },
+        asyncIncrement: ({ commit }, payload) => {
+            setTimeout(() => {
+                commit('increment', payload.by);
+            }, payload.duration);
+        },
+        asyncDecrement: ({ commit }, payload) => {
+            setTimeout(() => {
+                commit('decrement', payload.by);
+            }, payload.duration);
         }
     }
 });
