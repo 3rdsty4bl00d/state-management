@@ -36,7 +36,14 @@
               same as before
            -->
           <app-another-result></app-another-result>
+          <!-- 
+              to use v-model here
+              we have to use get and set
+              in the computed properties
 
+              look below
+           -->
+          <input type="text" v-model="value">
       </div>
   </div>
 </template>
@@ -67,6 +74,38 @@ import AnotherResult from './components/AnotherResult.vue'
 
 
 export default {
+
+    computed: {
+        /* 
+            we use value, not as a function here
+            but we use get and set function inside 
+            value
+            this is a very important property to use
+            if we want to only get data
+            in this case we want the data of value
+            so from get() we return the value
+            and from set() we dispatch the updated value
+            from updateValue
+        */
+       /* 
+            be very caution about using
+            getter and setter,
+            might be harmful in the big application
+       */
+        value: {
+            get() {
+                return this.$store.getters.value;
+            },
+            set() {
+                this.$store.dispatch('updateValue', value);
+            }
+        }
+    },
+    methods: {
+        updateValue(event) {
+            this.$store.dispatch('updateValue', event.target.value);
+        }
+    },
 
 /* 
     to use components
