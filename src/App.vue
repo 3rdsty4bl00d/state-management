@@ -21,9 +21,18 @@
           <br>
           <br>
           <hr>
+
+            <!-- 
+                app-result is another component
+                same as before
+             -->
+
           <app-result></app-result>
           <br>
           <hr>
+          <!-- 
+              same as before
+           -->
           <app-another-result></app-another-result>
 
       </div>
